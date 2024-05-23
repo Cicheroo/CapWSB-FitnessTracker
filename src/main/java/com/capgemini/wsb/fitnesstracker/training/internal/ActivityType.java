@@ -1,6 +1,8 @@
 package com.capgemini.wsb.fitnesstracker.training.internal;
 
-// TODO : JavaDoc
+/**
+ * Enum representing possible activity types of training.
+ */
 public enum ActivityType {
 
     RUNNING("Running"),
@@ -15,6 +17,11 @@ public enum ActivityType {
         this.displayName = displayName;
     }
 
+    /**
+     * Gets display name.
+     *
+     * @return display name
+     */
     public String getDisplayName() {
         return displayName;
     }
