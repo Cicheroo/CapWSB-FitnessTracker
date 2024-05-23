@@ -6,7 +6,7 @@ import jakarta.annotation.Nullable;
 import java.time.LocalDate;
 
 /**
- * User dto which is used to update existing {@link User}.
+ * User dto which is used to do write operations on {@link User}.
  *
  * @param id The id of user which is nullable
  * @param firstName The firstName of user

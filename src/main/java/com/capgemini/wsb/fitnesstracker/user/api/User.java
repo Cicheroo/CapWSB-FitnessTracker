@@ -9,7 +9,6 @@ import java.time.LocalDate;
 /**
  * This class is an entity and is mapped to a database table named 'users'. This is main communication between database and
  * Java API. This entity stores data about user.
- *
  */
 @Entity
 @Table(name = "users")

@@ -4,7 +4,7 @@ import com.capgemini.wsb.fitnesstracker.user.api.User;
 import org.springframework.stereotype.Component;
 
 /**
- * User mapper is a helper class managed by Spring Framework which is used to map {@link User} to corresponding Dto.
+ * User mapper is a helper class managed by Spring Framework which is used to map {@link User} to corresponding Dto back and forth.
  */
 @Component
 class UserMapper {
@@ -60,7 +60,7 @@ class UserMapper {
     }
 
     /**
-     * Maps {@link com.capgemini.wsb.fitnesstracker.user.api.UserDto} to {@link User} and updated user's fields.
+     * Maps {@link com.capgemini.wsb.fitnesstracker.user.api.UserDto} to {@link User} and updates user's fields.
      *
      * @param user The user to be updated
      * @param userDto The userDto which contains updated fields

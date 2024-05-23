@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 /**
- * User rest controller used to communicate via HTTP. It produces/consumes in JSON format as default.
+ * User rest controller used to communicate via HTTP to read/write on training. It produces/consumes in JSON format as default.
  */
 @RestController
 @RequestMapping("/v1/users")
@@ -24,7 +24,7 @@ class UserController {
     /**
      * Finds all users with detailed data.
      *
-     * @return list of users
+     * @return A {@link List} containing all users
      */
     @GetMapping
     public List<UserDto> getAllUsers() {
@@ -37,7 +37,7 @@ class UserController {
     /**
      * Finds all users with simple data.
      *
-     * @return list of users
+     * @return A {@link List} of {@link UserSimpleDataDto}
      */
     @GetMapping("/simple")
     public List<UserSimpleDataDto> getAllUsersSimpleData() {
@@ -51,7 +51,7 @@ class UserController {
      * Gets user by id and returns it's detailed data. If no user was found it throws exception.
      *
      * @param id of user to be found
-     * @return found user
+     * @return found user {@link User}
      */
     @GetMapping("/{id}")
     public UserDto getUserById(@PathVariable Long id) {
@@ -64,7 +64,7 @@ class UserController {
      * Gets user by email and returns it's detailed data. If no user was found it throws exception.
      *
      * @param email of user to be found
-     * @return found user
+     * @return found user {@link User}
      */
     @GetMapping("/email/{email}")
     public UserDto getUserByEmail(@PathVariable String email) {
@@ -77,7 +77,7 @@ class UserController {
      * Gets list of user with email matching given parameter. If no matches found returns an empty {@link List}
      *
      * @param email pattern of email
-     * @return list of users
+     * @return A {@link List} containing all users with matching email
      */
     @GetMapping("/email")
     public List<UserIdEmailDto> getUserByEmailLike(@RequestParam String email) {
@@ -91,7 +91,7 @@ class UserController {
      * Gets list of user with older than given time. If no matches found returns an empty {@link List}
      *
      * @param time Upper bound limiting users maximum birthdate.
-     * @return list of users
+     * @return A {@link List} containing all users older than time
      */
     @GetMapping("/older/{time}")
     public List<UserDto> getUsersOlderThan(@PathVariable LocalDate time) {
@@ -104,7 +104,7 @@ class UserController {
     /**
      * Deletes user with given id.
      *
-     * @param id The id of user to delete.
+     * @param id The id of user {@link User} to delete.
      */
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
@@ -113,14 +113,14 @@ class UserController {
     }
 
     /**
-     * Adds new user. If successful it returns created user with 201 status code.
+     * Creates new user. If successful it returns created user with 201 status code.
      *
-     * @param userDto The body used to create new {@link User}
-     * @return newly created user
+     * @param userDto The body {@link UserDto} used to create new user
+     * @return newly created user {@link User}
      */
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public User addUser(@RequestBody UserDto userDto) {
+    public User createUser(@RequestBody UserDto userDto) {
         return userService.createUser(userMapper.toEntity(userDto));
     }
 
@@ -128,8 +128,8 @@ class UserController {
      * Updates already existing user.
      *
      * @param id The id of user to update
-     * @param userDto The body used to update existing {@link User}
-     * @return updated user
+     * @param userDto The body {@link com.capgemini.wsb.fitnesstracker.user.api.UserDto} used to update existing user
+     * @return updated user {@link User}
      */
     @PutMapping("/{id}")
     public User updateUser(@PathVariable Long id, @RequestBody com.capgemini.wsb.fitnesstracker.user.api.UserDto userDto) {

@@ -11,8 +11,8 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * This service is main communication point between API and internal functionality. This service is managed by Spring Framework therefore
- * it's life cycle is managed by the framework.
+ * This service is main communication point between API and internal functionality. It performs operations on training.
+ * This service is managed by Spring Framework therefore it's life cycle is managed by the framework.
  */
 @Service
 @RequiredArgsConstructor
@@ -99,7 +99,7 @@ class UserServiceImpl implements UserService, UserProvider {
     /**
      * Retrieves all users.
      *
-     * @return An {@link Optional} containing the all users,
+     * @return An {@link List} containing the all users
      */
     @Override
     public List<User> findAllUsers() {

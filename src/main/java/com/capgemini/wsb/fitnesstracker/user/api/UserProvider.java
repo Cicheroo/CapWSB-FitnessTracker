@@ -30,7 +30,7 @@ public interface UserProvider {
     /**
      * Retrieves all users.
      *
-     * @return An {@link Optional} containing the all users,
+     * @return An {@link List} containing all users
      */
     List<User> findAllUsers();
 

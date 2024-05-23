@@ -12,6 +12,11 @@ public class TrainingNotFoundException extends NotFoundException {
         super(message);
     }
 
+    /**
+     * Constructs message about training that was not found with given id.
+     *
+     * @param id id of training that was not found
+     */
     public TrainingNotFoundException(Long id) {
         this("Training with ID=%s was not found".formatted(id));
     }
